@@ -7,6 +7,27 @@ import { Download, FileText, TrendingUp, Users } from "lucide-react";
 
 const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'];
 
+const schoolStats = {
+  averagePerformance: 85,
+  totalStudents: 500,
+  totalTeachers: 40,
+  topPerformers: [{}, {}, {}, {}], // 4 top performers
+  subjectPerformance: [
+    { subject: 'Math', average: 88, totalStudents: 120 },
+    { subject: 'Science', average: 82, totalStudents: 110 },
+    { subject: 'English', average: 90, totalStudents: 130 },
+    { subject: 'History', average: 80, totalStudents: 70 },
+    { subject: 'Art', average: 75, totalStudents: 70 },
+  ],
+  teacherPerformance: [
+    { id: 1, name: 'Mr. Smith', subject: 'Math', studentsCount: 30, averageGrades: 88 },
+    { id: 2, name: 'Ms. Johnson', subject: 'Science', studentsCount: 28, averageGrades: 82 },
+    { id: 3, name: 'Mr. Lee', subject: 'English', studentsCount: 32, averageGrades: 90 },
+    { id: 4, name: 'Ms. Patel', subject: 'History', studentsCount: 20, averageGrades: 80 },
+    { id: 5, name: 'Mr. Kim', subject: 'Art', studentsCount: 20, averageGrades: 75 },
+  ],
+};
+
 const PrincipalReports = () => {
   return (
     <Layout role="principal" title="School Reports" subtitle="Comprehensive analytics and performance reports">

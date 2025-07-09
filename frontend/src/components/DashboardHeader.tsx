@@ -62,18 +62,22 @@ const DashboardHeader = ({ role, title, subtitle }: DashboardHeaderProps) => {
   };
 
   return (
-    <header className="header-gradient border-b border-white/20 px-4 sm:px-6 lg:px-8 py-4 lg:py-6 shadow-lg">
-      <div className="flex items-center justify-between">
-        <div className="flex-1 min-w-0">
+    <header className="header-gradient border-b border-white/20 px-4 sm:px-6 lg:px-8 py-4 lg:py-6 shadow-lg relative">
+      <div className="relative flex items-center justify-center w-full">
+        {/* Hamburger placeholder for spacing on mobile */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center z-10">
+          {/* Hamburger menu is rendered in AppSidebar, so just reserve space here if needed */}
+          <span className="block w-10 h-10 lg:hidden" />
+        </div>
+        <div className="flex flex-col items-center flex-1 min-w-0">
           <div className="flex items-center gap-2 lg:gap-3 mb-2">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gradient truncate">{title}</h1>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gradient truncate text-center w-full">{title}</h1>
           </div>
           {subtitle && (
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-medium truncate">{subtitle}</p>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-medium truncate text-center w-full">{subtitle}</p>
           )}
         </div>
-        
-        <div className="flex items-center gap-3 lg:gap-6 ml-4">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-3 lg:gap-6 ml-4">
           {/* Notifications */}
           <NotificationCenter
             notifications={notifications}
