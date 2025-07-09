@@ -36,4 +36,30 @@ exports.deleteAssignment = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+};
+
+// Get all A grade students for a teacher's courses/classes
+exports.getTeacherSubjectAGradeStudents = async (req, res) => {
+  try {
+    const Grade = require('../models/Grade');
+    const StudentDetail = require('../models/StudentDetail');
+    const User = require('../models/User');
+    const teacherId = req.params.teacherId;
+    // Find all grades for this teacher with gradeLetter 'A'
+    const grades = await Grade.find({ teacher: teacherId, gradeLetter: 'A' })
+      .populate({
+        path: 'student',
+        model: 'StudentDetail',
+        populate: {
+          path: 'user',
+          model: 'User',
+          match: { role: 'student' }
+        }
+      })
+      .populate('subject')
+      .populate('class');
+    res.json(grades);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 }; 

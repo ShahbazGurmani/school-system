@@ -38,4 +38,10 @@ export async function getTeacherClassesWithDetails(teacherId: string) {
   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/teacher-assignments/classes?teacherId=${teacherId}`);
   if (!res.ok) throw new Error('Failed to fetch teacher classes with details');
   return res.json();
+}
+
+export async function getTeacherAGradeStudents(teacherId: string) {
+  const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/teacher-assignments/teacher/${teacherId}/a-grade-students`);
+  if (!res.ok) throw new Error('Failed to fetch A grade students');
+  return res.json();
 } 

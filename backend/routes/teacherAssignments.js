@@ -11,6 +11,7 @@ router.get('/', controller.getAllAssignments);
 router.get('/teacher/:teacherId', controller.getAssignmentsByTeacher);
 router.post('/', adminOnly, controller.createAssignment);
 router.delete('/:id', adminOnly, controller.deleteAssignment);
+router.get('/teacher/:teacherId/a-grade-students', controller.getTeacherSubjectAGradeStudents);
 
 // GET /classes?teacherId=xxx
 router.get('/classes', async (req, res) => {

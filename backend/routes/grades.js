@@ -5,6 +5,7 @@ const { getTeachersAndCoursesForStudentUserId } = require('../controllers/gradeC
 
 router.get('/', gradeController.getAllGrades);
 router.get('/teacher/:teacherId', gradeController.getGradesByTeacher);
+router.get('/teacher/:teacherId/a-grade-students', gradeController.getTeacherSubjectAGradeStudents);
 router.get('/:id', gradeController.getGradeById);
 router.post('/', gradeController.createGrade);
 router.put('/:id', gradeController.updateGrade);
